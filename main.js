@@ -23,7 +23,7 @@ let cube;
 const loader = new THREE.GLTFLoader();
 
 // Cambia 'Usuario' y 'Repo' a tu usuario/repositorio
-const glbURL = 'https://raw.githubusercontent.com/BastidaDavid/mi-portfolio/main/3d/cube.glb';
+const glbURL = 'https://raw.githubusercontent.com/BastidaDavid/mi-portfolio/3d/cube.glb';
 
 loader.load(
   glbURL,
