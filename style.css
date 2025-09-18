@@ -1,9 +1,9 @@
 body {
   margin: 0;
   overflow: hidden;
-  background: #fdfdfd;
+  background: #fdfdfd; /* fondo blanco */
 }
 
-canvas { 
-  display: block; 
+canvas {
+  display: block;
 }
