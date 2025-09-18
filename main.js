@@ -17,12 +17,9 @@ scene.add(light);
 let cube;
 const loader = new THREE.GLTFLoader();
 loader.load(
-  '3d/cube.glb', // ruta correcta
+  'https://raw.githubusercontent.com/BastidaDavid/mi-portfolio/main/3d/cube.glb',
   (gltf) => {
-    cube = gltf.scene;
-    scene.add(cube);
-    cube.rotation.x = 0;
-    cube.rotation.y = 0;
+    // Código de carga del modelo
   },
   undefined,
   (error) => {
