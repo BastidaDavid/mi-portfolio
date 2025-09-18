@@ -11,7 +11,7 @@ const camera = new THREE.PerspectiveCamera(
 camera.position.z = 3;
 
 // 3. Renderizador
-const renderer = new THREE.WebGLRenderer();
+const renderer = new THREE.WebGLRenderer({ alpha: true }); // canvas transparente
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
