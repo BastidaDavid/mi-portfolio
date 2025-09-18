@@ -19,7 +19,10 @@ const loader = new THREE.GLTFLoader();
 loader.load(
   'https://raw.githubusercontent.com/BastidaDavid/mi-portfolio/main/3d/cube.glb',
   (gltf) => {
-    // Código de carga del modelo
+    cube = gltf.scene;       // Asignamos el modelo a la variable cube
+    scene.add(cube);         // Lo agregamos a la escena
+    cube.rotation.x = 0;
+    cube.rotation.y = 0;
   },
   undefined,
   (error) => {
@@ -30,6 +33,7 @@ loader.load(
 // 5. Animación
 function animate() {
   requestAnimationFrame(animate);
+
   if(cube){
     cube.rotation.x += 0.01;
     cube.rotation.y += 0.01;
