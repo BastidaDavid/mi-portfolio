@@ -18,11 +18,15 @@ const light = new THREE.DirectionalLight(0xffffff, 1);
 light.position.set(5,5,5);
 scene.add(light);
 
-// 4. Cargar modelo .glb
+// 4. Cargar modelo .glb desde GitHub Pages
 let cube;
 const loader = new THREE.GLTFLoader();
+
+// Cambia 'Usuario' y 'Repo' a tu usuario/repositorio
+const glbURL = 'https://raw.githubusercontent.com/BastidaDavid/mi-portfolio/main/3d/cube.glb';
+
 loader.load(
-  '3d/cube.glb', // Ruta relativa desde index.html
+  glbURL,
   (gltf) => {
     cube = gltf.scene;
     scene.add(cube);
