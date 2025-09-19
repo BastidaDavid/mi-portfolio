@@ -84,10 +84,7 @@ canvas {
 }
 /* 🔹 Botón de info arriba a la derecha */
 .details-btn {
-  position: absolute;
-  top: 20px;      /* alineado con el botón perfil */
-  right: 20px;    /* más cerca del borde derecho */
-  transform: none;
+  
   font-size: 1.2rem;
   width: 40px;
   height: 40px;
@@ -96,7 +93,7 @@ canvas {
   border-radius: 50%;
   color: white;
   cursor: pointer;
-  z-index: 15;
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -113,16 +110,16 @@ canvas {
 
 /* 👤 Botón de perfil (junto al de info) */
 .profile-btn {
-  position: absolute;
-  top: 20px;        /* mismo top que el btn info */
-  right: 70px;      /* lo colocamos a la izquierda del botón info */
+
   width: 40px;
   height: 40px;
   border-radius: 50%;
   overflow: hidden;
   border: 2px solid rgba(255,255,255,0.6);
   cursor: pointer;
-  z-index: 15;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   box-shadow: 0 4px 10px rgba(0,0,0,0.4);
   transition: transform 0.3s ease, border-color 0.3s ease;
 }
