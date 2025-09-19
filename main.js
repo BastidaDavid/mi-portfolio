@@ -23,17 +23,19 @@ directionalLight.position.set(5, 5, 5);
 scene.add(directionalLight);
 
 // 4. Cargar modelo .glb
-let cube;
 const loader = new THREE.GLTFLoader();
+const url = '3d/cube.glb'; // Ruta relativa desde index.html
 
-// Usa la ruta relativa correcta
+let cube;
 loader.load(
-  '3d/cube.glb',
+  url,
   (gltf) => {
     cube = gltf.scene;
-    console.log('Modelo cargado:', cube);
+    cube.scale.set(0.5, 0.5, 0.5); // Ajusta la escala si es necesario
+    cube.position.set(0, 0, 0); // Centrar modelo
     scene.add(cube);
-
+    console.log('Modelo cargado:', cube);
+    
   },
   undefined,
   (error) => {
