@@ -6,7 +6,7 @@ const camera = new THREE.PerspectiveCamera(
   0.1,
   1000
 );
-camera.position.set(0, 1, 3); // ajustar cámara para ver mejor
+camera.position.z = 5;
 
 // 2. Renderizador
 const renderer = new THREE.WebGLRenderer({ antialias: true });
@@ -15,7 +15,7 @@ renderer.setClearColor(0xeeeeee); // fondo gris claro
 document.body.appendChild(renderer.domElement);
 
 // 3. Luz
-const ambientLight = new THREE.AmbientLight(0xffffff, 0.6); // luz ambiental
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
 scene.add(ambientLight);
 
 const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
@@ -31,13 +31,9 @@ loader.load(
   '3d/cube.glb',
   (gltf) => {
     cube = gltf.scene;
-
-    // Ajustar escala si es muy pequeño o grande
-    cube.scale.set(1, 1, 1); 
-    cube.position.set(0, 0, 0);
-
+    console.log('Modelo cargado:', cube);
     scene.add(cube);
-    
+
   },
   undefined,
   (error) => {
