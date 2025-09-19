@@ -93,23 +93,12 @@ body {
   overflow: hidden;
   height: 100vh;
 
-  /* Imagen de fondo */
-  background: url("img/mi-fondo.jpg") no-repeat center center fixed;
+  /* 👇 degradado negro semitransparente encima de la imagen */
+  background: 
+    linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), /* 0.4 = oscuridad */
+    url("img/mi-fondo.jpg") no-repeat center center fixed;
+    
   background-size: cover;
   font-family: 'Arial', sans-serif;
-
-  /* 👇 Para que el overlay se muestre bien */
-  position: relative;
-}
-
-/* Capa oscura sobre el fondo */
-body::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5); /* 0.5 = 50% de oscuridad */
-  z-index: -1; /* se pone detrás de todo el contenido */
+  
 }
