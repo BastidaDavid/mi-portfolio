@@ -6,31 +6,38 @@ const camera = new THREE.PerspectiveCamera(
   0.1,
   1000
 );
-camera.position.z = 3;
+camera.position.set(0, 1, 3); // ajustar cámara para ver mejor
 
 // 2. Renderizador
-const renderer = new THREE.WebGLRenderer({ alpha: true });
+const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setClearColor(0xeeeeee); // fondo gris claro
 document.body.appendChild(renderer.domElement);
 
 // 3. Luz
-const light = new THREE.DirectionalLight(0xffffff, 1);
-light.position.set(5, 5, 5);
-scene.add(light);
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.6); // luz ambiental
+scene.add(ambientLight);
 
-// 4. Cargar modelo .glb desde la carpeta 3d
+const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+directionalLight.position.set(5, 5, 5);
+scene.add(directionalLight);
+
+// 4. Cargar modelo .glb
 let cube;
 const loader = new THREE.GLTFLoader();
 
-
-
+// Usa la ruta relativa correcta
 loader.load(
-  '3d/cube.glb', // ruta relativa desde index.html
+  '3d/cube.glb',
   (gltf) => {
     cube = gltf.scene;
+
+    // Ajustar escala si es muy pequeño o grande
+    cube.scale.set(1, 1, 1); 
+    cube.position.set(0, 0, 0);
+
     scene.add(cube);
-    cube.rotation.x = 0;
-    cube.rotation.y = 0;
+    
   },
   undefined,
   (error) => {
@@ -42,7 +49,7 @@ loader.load(
 function animate() {
   requestAnimationFrame(animate);
 
-  if (cube) {
+  if(cube){
     cube.rotation.x += 0.01;
     cube.rotation.y += 0.01;
   }
