@@ -96,9 +96,9 @@ body {
   /* 👇 degradado negro semitransparente encima de la imagen */
   background: 
     linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), /* 0.4 = oscuridad */
-    url("img/mi-fondo.jpg") no-repeat center center fixed;
+    url("img/p1.jpg") no-repeat center center fixed;
     
   background-size: cover;
   font-family: 'Arial', sans-serif;
-  
+
 }
