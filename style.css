@@ -83,11 +83,11 @@ canvas {
   backdrop-filter: blur(6px);
 }
 /* 🔹 Botón de info arriba a la derecha */
-/* 🔹 Botón de info arriba a la derecha (izquierda de perfil) */
+/* 🔹 Botón de info arriba a la derecha (izquierda del perfil) */
 .details-btn {
   position: absolute;
-  top: 20px;       /* distancia desde arriba */
-  left: 20px;      /* alineado a la izquierda */
+  top: 20px;        /* misma altura que perfil */
+  right: 70px;      /* distancia desde la derecha, deja espacio para perfil */
   font-size: 1.2rem;
   width: 40px;
   height: 40px;
@@ -96,7 +96,7 @@ canvas {
   border-radius: 50%;
   color: white;
   cursor: pointer;
-  
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -115,7 +115,7 @@ canvas {
 .profile-btn {
   position: absolute;
   top: 20px;       /* misma altura que info */
-  right: 20px;     /* alineado a la derecha */
+  right: 20px;     /* más cerca del borde derecho */
   width: 40px;
   height: 40px;
   border-radius: 50%;
