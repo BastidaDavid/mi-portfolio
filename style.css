@@ -7,3 +7,30 @@ body {
 canvas {
   display: block;
 }
+
+body {
+  margin: 0;
+  overflow: hidden;
+  font-family: sans-serif;
+}
+
+.side-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  padding: 10px 20px;
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  cursor: pointer;
+  z-index: 10; /* para que quede encima del canvas */
+}
+
+.left {
+  left: 10px;
+}
+
+.right {
+  right: 10px;
+}
