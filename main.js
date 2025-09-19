@@ -115,3 +115,38 @@ window.addEventListener('resize', ()=>{
     renderer.setSize(window.innerWidth, window.innerHeight);
 });
 
+function updateIndicator(index) {
+  const dots = document.querySelectorAll('.model-indicator .dot');
+  dots.forEach(dot => dot.classList.remove('active'));
+  dots[index].classList.add('active');
+}
+
+// Llamar cuando cargas modelo
+loadModel(nextIndex);
+updateIndicator(nextIndex);
+
+scene.fog = new THREE.FogExp2(0x000000, 0.05); // color y densidad
+
+function adjustLighting(index) {
+  // Ejemplo: cambiar intensidad o color
+  directionalLight.intensity = 1 + 0.2 * index;
+  ambientLight.color.setHSL(0.6 * index, 0.5, 0.5);
+}
+
+const particleCount = 200;
+const particles = new THREE.BufferGeometry();
+const positions = [];
+
+for(let i=0; i<particleCount; i++){
+  positions.push((Math.random()-0.5)*10);
+  positions.push((Math.random()-0.5)*10);
+  positions.push((Math.random()-0.5)*10);
+}
+particles.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+
+const particleMaterial = new THREE.PointsMaterial({ color: 0xffffff, size: 0.05, transparent: true });
+const particleSystem = new THREE.Points(particles, particleMaterial);
+scene.add(particleSystem);
+
+// En animate:
+particleSystem.rotation.y += 0.001;
