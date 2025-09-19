@@ -8,9 +8,8 @@ const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHei
 camera.position.z = 5;
 
 // ---------- RENDERER ----------
-const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true }); // 👈 alpha true
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
-
 document.body.appendChild(renderer.domElement);
 
 // ---------- LUCES ----------
@@ -29,9 +28,8 @@ controls.enablePan = false;
 controls.minDistance = 2;
 controls.maxDistance = 10;
 
-// ---------- CARGA DE MODELOS ----------
+// ---------- MODELOS ----------
 const loader = new GLTFLoader();
-
 
 const models = [
   '3d/cube_red.glb',
@@ -50,22 +48,34 @@ const modelInfo = [
 let currentIndex = 0;
 let currentModel;
 
+// ---------- SOMBRA ----------
+const textureLoader = new THREE.TextureLoader();
+const shadowTexture = textureLoader.load('img/shadow.png');
 
+const shadowMesh = new THREE.Mesh(
+  new THREE.PlaneGeometry(1.5, 1.5),
+  new THREE.MeshBasicMaterial({ map: shadowTexture, transparent: true })
+);
+shadowMesh.rotation.x = -Math.PI / 2;
+shadowMesh.position.y = -0.5;
+scene.add(shadowMesh);
 
-function loadModel(index){
-   
-   
-    if(currentModel){
-        scene.remove(currentModel);
-    }
+// ---------- CARGA DE MODELO ----------
+function loadModel(index) {
+    if(currentModel) scene.remove(currentModel);
 
     loader.load(models[index], (gltf)=>{
         currentModel = gltf.scene;
         currentModel.scale.set(1,1,1);
         scene.add(currentModel);
-    }, undefined, (error)=>{
-        console.error(error);
-    });
+
+        // sombra sigue al modelo
+        shadowMesh.position.x = currentModel.position.x;
+        shadowMesh.position.z = currentModel.position.z;
+
+        // actualizar indicador
+        updateIndicator(index);
+    }, undefined, (error)=> console.error(error));
 
     currentIndex = index;
 }
@@ -97,13 +107,18 @@ document.getElementById('details').addEventListener('click', ()=>{
   }
 });
 
+// ---------- INDICADOR DE MODELO ----------
+function updateIndicator(index) {
+  const dots = document.querySelectorAll('.model-indicator .dot');
+  dots.forEach(dot => dot.classList.remove('active'));
+  dots[index].classList.add('active');
+}
+
 // ---------- ANIMACIÓN ----------
 function animate(){
     requestAnimationFrame(animate);
-    if(currentModel){
-        currentModel.rotation.y += 0.01; // animación automática
-    }
-    controls.update(); // actualizar OrbitControls
+    if(currentModel) currentModel.rotation.y += 0.01;
+    controls.update();
     renderer.render(scene, camera);
 }
 animate();
@@ -114,15 +129,3 @@ window.addEventListener('resize', ()=>{
     camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight);
 });
-
-function updateIndicator(index) {
-  const dots = document.querySelectorAll('.model-indicator .dot');
-  dots.forEach(dot => dot.classList.remove('active'));
-  dots[index].classList.add('active');
-}
-
-// Llamar cuando cargas modelo
-loadModel(nextIndex);
-updateIndicator(nextIndex);
-
-
