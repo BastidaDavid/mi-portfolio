@@ -1,36 +1,48 @@
 body {
   margin: 0;
   overflow: hidden;
-  background: #000; /* negro */
+  background: #000; /* fondo negro */
+  font-family: 'Arial', sans-serif;
 }
 
+/* Canvas ocupa todo el espacio */
 canvas {
   display: block;
 }
 
-body {
-  margin: 0;
-  overflow: hidden;
-  font-family: sans-serif;
-}
-
+/* Botones flotantes estilo moderno */
 .side-btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 2rem;
-  padding: 10px 20px;
-  background: rgba(0,0,0,0.5);
+  font-size: 1.8rem;
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.1); /* semitransparente */
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 50%; /* circular */
   color: white;
-  border: none;
+  
   cursor: pointer;
-  z-index: 10; /* para que quede encima del canvas */
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px); /* efecto vidrio */
 }
 
+.side-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.8);
+  transform: translateY(-50%) scale(1.2); /* efecto hover */
+}
+
+/* Posición izquierda y derecha */
 .left {
-  left: 10px;
+  left: 20px;
 }
 
 .right {
-  right: 10px;
+  right: 20px;
 }
