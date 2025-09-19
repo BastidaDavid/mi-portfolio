@@ -1,7 +1,7 @@
 body {
   margin: 0;
   overflow: hidden;
-  background: #fdfdfd; /* fondo blanco */
+  background: #000; /* negro */
 }
 
 canvas {
