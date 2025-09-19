@@ -1,23 +1,13 @@
-.body {
-  margin: 0;
+body {
+  margin: 20;
   overflow: hidden;
   height: 100vh;
-  font-family: 'Arial', sans-serif;
-  color: white;
-
-  /* Fondo combinado: imagen + overlay animado */
   background: 
-    linear-gradient(120deg, rgba(15,32,39,0.3), rgba(32,58,67,0.3), rgba(44,83,100,0.3)),
+    linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
     url("img/p1.jpg") no-repeat center center fixed;
   background-size: cover;
-  animation: gradientShift 15s ease infinite;
-}
-
-/* Animación del overlay */
-@keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  font-family: 'Arial', sans-serif;
+  color: white;
 }
 
 /* 🎯 Canvas ocupa todo */
@@ -150,24 +140,4 @@ canvas {
   border-color: white;
 }
 
-.model-indicator {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 10px;
-  z-index: 15;
-}
 
-.model-indicator .dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.4);
-  transition: background 0.3s;
-}
-
-.model-indicator .dot.active {
-  background: white;
-}
