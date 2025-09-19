@@ -8,9 +8,9 @@ const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHei
 camera.position.z = 5;
 
 // ---------- RENDERER ----------
-const renderer = new THREE.WebGLRenderer({ antialias: true });
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true }); // 👈 alpha true
 renderer.setSize(window.innerWidth, window.innerHeight);
-renderer.setClearColor(0x000000); // fondo negro
+
 document.body.appendChild(renderer.domElement);
 
 // ---------- LUCES ----------
