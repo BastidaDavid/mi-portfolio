@@ -80,3 +80,24 @@ window.addEventListener('resize', ()=>{
     camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight);
 });
+
+const infoBox = document.getElementById('infoBox');
+const infoText = document.getElementById('infoText');
+
+// Array de descripciones de tus modelos
+const modelInfo = [
+  "Cubo rojo: Este modelo representa el primer diseño.",
+  "Cubo verde: Este modelo es la versión ecológica.",
+  "Cubo azul: Modelo con acabado metálico.",
+  "Cubo amarillo: Versión destacada para exposición."
+];
+
+// Botón detalles
+document.getElementById('details').addEventListener('click', ()=>{
+  if(infoBox.style.display === "none"){
+    infoText.textContent = modelInfo[currentIndex]; // actualiza según modelo
+    infoBox.style.display = "block";
+  } else {
+    infoBox.style.display = "none";
+  }
+});
