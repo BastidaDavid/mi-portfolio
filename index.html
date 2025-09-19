@@ -17,12 +17,21 @@
   </script>
 </head>
 <body>
+  <!-- Botones flotantes con iconos SVG -->
+  <button id="prev" class="side-btn left">
+    <!-- Flecha izquierda SVG -->
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="15 18 9 12 15 6"></polyline>
+    </svg>
+  </button>
 
-  <!-- Botones flotantes para cambiar cubos -->
-  <button id="prev" class="side-btn left">&lt;</button>
-  <button id="next" class="side-btn right">&gt;</button>
+  <button id="next" class="side-btn right">
+    <!-- Flecha derecha SVG -->
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </button>
 
-  <!-- JS principal externo -->
   <script type="module" src="main.js"></script>
 </body>
 </html>
