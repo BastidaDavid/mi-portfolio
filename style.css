@@ -92,5 +92,9 @@ body {
   margin: 0;
   overflow: hidden;
   height: 100vh;
-  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); /* degradado */
+
+  /* 👇 aquí tu imagen de fondo */
+  background: url("img/p1.jpg") no-repeat center center fixed;
+  background-size: cover; /* que ocupe toda la pantalla */
+  font-family: 'Arial', sans-serif;
 }
