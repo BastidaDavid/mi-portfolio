@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
@@ -67,9 +68,9 @@ document.getElementById('prev').addEventListener('click', ()=>{
 function animate(){
     requestAnimationFrame(animate);
     if(currentModel){
-        currentModel.rotation.x += 0.01;
-        currentModel.rotation.y += 0.01;
+        currentModel.rotation.y += 0.01; // si quieres animación automática
     }
+    controls.update(); // actualiza OrbitControls
     renderer.render(scene,camera);
 }
 animate();
@@ -101,3 +102,10 @@ document.getElementById('details').addEventListener('click', ()=>{
     infoBox.style.display = "none";
   }
 });
+
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true; // suaviza el movimiento
+controls.dampingFactor = 0.05;
+controls.enablePan = false; // opcional, desactiva mover lateralmente
+controls.minDistance = 2;   // distancia mínima de zoom
+controls.maxDistance = 10;  // distancia máxima de zoom
