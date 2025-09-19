@@ -88,14 +88,14 @@ canvas {
   font-size: 0.9rem;
 }
 
-body {
+  body {
   margin: 0;
   overflow: hidden;
   height: 100vh;
 
-  /* 👇 degradado negro semitransparente encima de la imagen */
+  /* 👇 degradado más oscuro (0.6) */
   background: 
-    linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), /* 0.4 = oscuridad */
+    linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
     url("img/p1.jpg") no-repeat center center fixed;
     
   background-size: cover;
