@@ -4,7 +4,7 @@ body {
   height: 100vh;
   background: 
     linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
-    url("img/mi-fondo.jpg") no-repeat center center fixed;
+    url("img/p1.jpg") no-repeat center center fixed;
   background-size: cover;
   font-family: 'Arial', sans-serif;
   color: white;
