@@ -52,15 +52,47 @@
     }
     /* HERO */
     .hero {
-      min-height: 92vh;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 82px 0 64px 0;
+      padding: 0;
       position: relative;
       overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .hero-bg iframe {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 240vw;
+      height: 240vh;
+      transform: translate(-50%, -50%) scale(1.3);
+      object-fit: cover;
+      pointer-events: none;
+    }
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7); /* darker overlay */
+      z-index: 1;
+    }
+    .hero .container {
+      position: relative;
+      z-index: 2;
     }
     .hero-title {
       font-family: var(--font-title);
@@ -379,6 +411,14 @@
 <body>
   <!-- HERO -->
   <section class="hero fade-in" id="hero">
+    <div class="hero-bg">
+      <iframe src="https://www.youtube.com/embed/VjpjSB_X8AM?autoplay=1&mute=1&loop=1&playlist=VjpjSB_X8AM&controls=0&showinfo=0&modestbranding=1" 
+              frameborder="0" 
+              allow="autoplay; fullscreen" 
+              allowfullscreen 
+              loading="lazy"></iframe>
+      <div class="hero-overlay"></div>
+    </div>
     <div class="container">
       <h1 class="hero-title">David Bastida — Multimedia Designer &amp; 3D Artist</h1>
       <div class="hero-subtitle">Portfolio 2025</div>
