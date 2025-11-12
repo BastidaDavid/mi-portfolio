@@ -6,6 +6,45 @@
   <meta name="description" content="Professional portfolio of David Bastida — Multimedia Designer & 3D Artist. Animation, 3D design, motion graphics, and immersive experiences.">
   <title>David Bastida — Multimedia Designer & 3D Artist</title>
   <style>
+    #bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+    #overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 1;
+    }
+    .hero, .about-section, .gallery-section, .special-project, .models-section, .contact-section, footer {
+      position: relative;
+      z-index: 2;
+    }
+    #sound-btn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background-color: rgba(0, 0, 0, 0.6);
+      color: white;
+      border: none;
+      padding: 12px 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      z-index: 3;
+      font-size: 16px;
+      transition: background 0.3s;
+    }
+    #sound-btn:hover {
+      background-color: rgba(255, 255, 255, 0.3);
+    }
     :root {
       --bg-main: #0e0e0e;
       --bg-dark: #151515;
@@ -391,6 +430,12 @@
   </style>
 </head>
 <body>
+  <video id="bg-video" autoplay loop muted playsinline>
+    <source src="DAVEVISION.mp4" type="video/mp4">
+    Tu navegador no soporta este formato de video.
+  </video>
+  <div id="overlay"></div>
+  <button id="sound-btn">🔊 Activar sonido</button>
   <!-- HERO -->
   <section class="hero fade-in" id="hero">
     
@@ -562,6 +607,22 @@
     // Fade-in también al resize
     window.addEventListener('resize', fadeInOnScroll);
   </script>
+  <script>
+    const video = document.getElementById('bg-video');
+    const soundBtn = document.getElementById('sound-btn');
+    let soundOn = false;
+    soundBtn.addEventListener('click', () => {
+      if (!soundOn) {
+        video.muted = false;
+        video.volume = 0.3;
+        soundOn = true;
+        soundBtn.textContent = '🔇 Silenciar';
+      } else {
+        video.muted = true;
+        soundOn = false;
+        soundBtn.textContent = '🔊 Activar sonido';
+      }
+    });
+  </script>
 </body>
 </html>
-  
